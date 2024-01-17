@@ -1,134 +1,27 @@
 import React from "react";
 import ReactDOM  from "react-dom"; 
+import './styles.css'
+import logo from './static/logo.jpg'
+function Header() {
+  return (
+    <header className="header">
 
-//Q. nested createElement 
+      <div id="logo">
+      <img src={logo} className="logo" alt="logo"/>
+      </div>
+      <div id="search">
+      <input type='text'  className='search' placeholder="Search..." autofocus="true"/>
+      </div>
+      <div id="icon">
+      <svg className="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M256 112c-48.6 0-88 39.4-88 88C168 248.6 207.4 288 256 288s88-39.4 88-88C344 151.4 304.6 112 256 112zM256 240c-22.06 0-40-17.95-40-40C216 177.9 233.9 160 256 160s40 17.94 40 40C296 222.1 278.1 240 256 240zM256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 464c-46.73 0-89.76-15.68-124.5-41.79C148.8 389 182.4 368 220.2 368h71.69c37.75 0 71.31 21.01 88.68 54.21C345.8 448.3 302.7 464 256 464zM416.2 388.5C389.2 346.3 343.2 320 291.8 320H220.2c-51.36 0-97.35 26.25-124.4 68.48C65.96 352.5 48 306.3 48 256c0-114.7 93.31-208 208-208s208 93.31 208 208C464 306.3 446 352.5 416.2 388.5z"/></svg>
 
-// const header = React.createElement(
-//     "div",
-//     {
-//         id:"header",
-//         className:"title"
-//     },
-//     [
-//         React.createElement(
-//             "h1",
-//             {
-//                 id:"title"
-//             },
-//             "This is h1"
-//         ),
-//         React.createElement(
-//             "h2",
-//             {
-//                 id:"title"
-//             },
-//             "this is h2"
-//         ),
-//         React.createElement(
-//             "h3",
-//             {
-//                 id:"title"
-//             },
-//             "this is h3"
-//         )
-//     ]
-// );
-
-
-
-//Q: Create the same element using JSX
-
-// const header = (
-//     <div className="Title" key="title">
-//         <h1 id="h1">This is h1</h1>
-//         <h2 id="h2">This is h2</h2>
-//         <h3 id="h3">This is h3</h3>
-//     </div>
-// );
-
-
-
-//Q. Create functional component of the same
-
-// const Header = () => {
-//     return (
-//         <div className="Title" key="title">
-//             <h1 id="h1">This is h1 tag</h1>
-//             <h2 id="h2">This is h2 tag</h2>
-//             <h3 id="h3">This is h3 tag</h3>
-//         </div>
-//     );
-// };
-
-
-
-//Q. Pass the attribute in the tag of jsx
-
-// const Header = () => {
-//     return (
-//         <div className="Title" key="title">
-//             <h1 style={{color: "orange"}} id="h1">This is h1 tag</h1>
-//             <h2 style={{color: "gray"}} id="h2">This is h2 tag</h2>
-//             <h3 style={{color: "green"}} id="h3">This is h3 tag</h3>
-//         </div>
-//     );
-// };
-
-
-//Q: Composition of Component (Add a component inside another)
-
-// const AnotherComponent = function() {
-//     return <h2 style={{color: "magenta"}} className="H2">This is a another component</h2>
-// }
-
-// const Header = () => {
-//     return (
-//         <div className="Title" key="title">
-//             <h1 style={{color: "orange"}} id="h1">This is h1 tag</h1>
-//             <h2 style={{color: "gray"}} id="h2">This is h2 tag</h2>
-//             <AnotherComponent/>
-//             <h3 style={{color: "green"}} id="h3">This is h3 tag</h3>
-//         </div>
-//     );
-// };
-
-
-//Q. Q: {TitleComponent} vs {<TitleComponent/>} vs {<TitleComponent></TitleComponent>} in JSX.
-
-const element = <h1>This is a React element</h1>   //titleelement
-
-const TitleElement = () => {
-    return (
-        <h1 className="Title">This is a Title element</h1>
-    );
-};
-
-const Header = () => {
-    return (
-        <div className="Title" key="title"> 
-            {/*This is a TitleElement*/}
-            {element}
-
-            <h1 className="h1">This is a h1 tag</h1>
-
-            {/*This is a Title Component*/}
-            <TitleElement/>
-
-            <h2 className="h2">This is a h2 tag</h2>
-
-            <TitleElement></TitleElement>
-
-            <h3 style={{ color: "green" }} key="h3"> This is h3 tag </h3>
-
-        </div>
-            
-    )
+      </div>
+    </header>
+  );
 }
-
-
 
 //Create root using createRoot
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 //passing the react element under the root
-root.render(Header());
+root.render(<Header />);
